@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+i=0
+while [ $i -le 9 ]
+do
+	echo "Holberton School"
+	if [ $i == 8 ]
+	then
+		echo "Hi"
+		fi
+		(( i++ ))
+done
