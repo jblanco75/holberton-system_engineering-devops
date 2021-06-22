@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+#Displays To infinity and beyond indefinitely
+
+function handler()
+{
+	echo "I am invincible!!!"
+}
+
+trap handler SIGTERM
+cond=1
+while [ $cond ]
+do
+	echo "To infinity and beyond"
+	sleep 2
+done
