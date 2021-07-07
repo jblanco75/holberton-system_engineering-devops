@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Script to ping specified IP address
+#Bash script that pings an IP address passed as an argument
 
 if [ "$1" == "" ]
 then
