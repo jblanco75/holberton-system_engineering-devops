@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Script to install and configure NGINX
+
+sudo apt-get -y update
+sudo apt -y install nginx
+ufw allow 'Nginx HTTP'
+echo "Holberton School" > index.html
+sudo mv index.html /var/www/html/
+sed -i '/listen 80 default_server;/a rewrite ^/redirect_me https://www.linkedin.com/in/jaime-arturo-blanco-gutierrez-8346069/ permanent;' /etc/nginx/sites-available/default
+sudo service nginx restart
