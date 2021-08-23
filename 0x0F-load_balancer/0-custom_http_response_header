@@ -10,5 +10,5 @@ sudo mv index.html /var/www/html/
 sudo mv error404.html /var/www/html/
 sed -i '/listen 80 default_server;/a rewrite ^/redirect_me https://www.linkedin.com/in/jaime-arturo-blanco-gutierrez-8346069/ permanent;' /etc/nginx/sites-available/default
 sed -i '/listen 80 default_server;/a error_page 404 /error404.html;' /etc/nginx/sites-available/default
-sed -i '/listen 80 default_server;/a add_header X-Served-By '$HOSTNAME';' /etc/nginx/sites-available/default
+sed -i "/server_name _/ a\\\tadd_header X-Served-By \"\$HOSTNAME\";" /etc/nginx/sites-available/default
 sudo service nginx restart
