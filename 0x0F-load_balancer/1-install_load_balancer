@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Install and configure HAproxy on your lb-01 server
+
+sudo apt-get udpate
+sudo apt-get -y install haproxy
+
+frontend firstbalance
+        bind *:80
+        option forwardfor
+        default_backend webservers
+
+backend webservers
+        balance roundrobin
+        server 2870-web-01 34.139.165.40:80 check
+        server 2870-web-02 34.228.158.10:80 check
+        option httpchk
+sudo service haproxy restart
