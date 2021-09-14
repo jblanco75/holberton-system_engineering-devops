@@ -14,6 +14,6 @@ if __name__ == '__main__':
     username = user.get("username")
 
     with open("{}.csv".format(e_id), "w") as csvfile:
-        f = csv.writer(csvfile)
+        f = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
         for task in tasks:
             f.writerow([e_id, username, task["completed"], task["title"]])
