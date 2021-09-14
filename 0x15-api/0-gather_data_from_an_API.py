@@ -12,12 +12,12 @@ if __name__ == '__main__':
     user = requests.get(url + 'users/' + e_id).json()
     tasks = requests.get(url + 'todos/', params={'userId': e_id}).json()
     name = user.get("name")
-    
+
     complete_task = 0
     for task in tasks:
         if task.get("completed") is True:
             complete_task += 1
-    
+
     completed_task = [(i) for i in tasks if i.get("completed") is True]
 
     print('Employee {} is done with tasks({}/{}):'
