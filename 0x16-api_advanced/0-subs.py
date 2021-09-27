@@ -13,5 +13,6 @@ def number_of_subscribers(subreddit):
                         allow_redirects=False)
     if rqst.status_code == 200:
         suscribers = r.json().get("data").get("subscribers")
-        return (suscribers)
+        if data is not None and subscribers is not None:
+            return subscribers
     return (0)
