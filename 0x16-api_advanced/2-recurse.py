@@ -7,13 +7,12 @@ the titles of all hot articles for a given subreddit
 import requests
 
 
-def recurse(subreddit, hot_list=[]):
+def recurse(subreddit, hot_list=[], after=''):
     """Recursive Top 10 func"""
     url = 'https://www.reddit.com/r/{}/hot.json?after={}'.format(subreddit,
                                                                  after)
-    param = {'limit': 10}
     rqst = requests.get(url, headers={'user-agent': 'jb75'},
-                        allow_redirects=False, params=param)
+                        allow_redirects=False)
     if rqst.status_code == 200:
         rqst = rqst.json()
         data = rqst.get('data')
